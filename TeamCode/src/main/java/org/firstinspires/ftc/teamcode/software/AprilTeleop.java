@@ -2,9 +2,12 @@ package org.firstinspires.ftc.teamcode.software;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.sun.tools.javac.util.StringUtils;
+
+import java.util.Random;
 
 @TeleOp(name="Basic Mecanum TeleOp coda", group="software class")
-public class CodaTeleop extends LinearOpMode {
+public class AprilTeleop extends LinearOpMode {
 
     // Instantiate the hardware class
     RobotHardware robot = new RobotHardware();
@@ -26,6 +29,7 @@ public class CodaTeleop extends LinearOpMode {
         while (!isStarted() && !isStopRequested()) {
             gamepadWrapper.runConfigurationMenu(telemetry);
             telemetry.addLine("Press PLAY to lock settings and start TeleOp.");
+            telemetry.addLine("Did You Know? Cats have 32 muscles in each ear");
             telemetry.update();
         }
 
@@ -71,12 +75,20 @@ public class CodaTeleop extends LinearOpMode {
             gamepadWrapper.update();
 
             // Run your drive control method
-            handleMecanumDrive();
+            String fact_one = "Most people sleep within 7 minutes";
+            String fact_two = "There are 293 ways to make change for a dollar";
+            String fact_three = "A shark is the only known fish that can blink with both eyes";
+            String fact_four = "'Stewardess' is the longest word that is typed with only the left hand";
+
+            //Random random = new Random();
+            //int boundedRange = random.nextInt(1,5);
+
 
             // Telemetry data for active match monitoring
             telemetry.addData("Status", "Running");
             telemetry.addData("Selected Alliance", isRedAlliance ? "RED" : "BLUE");
             telemetry.addData("Selected Side", isCloseSide ? "CLOSE" : "FAR");
+            telemetry.addData("Did You Know?", fact_three); // I really want to make it like a loading screen
             telemetry.update();
         }  // end while
     } // end runOpMode
