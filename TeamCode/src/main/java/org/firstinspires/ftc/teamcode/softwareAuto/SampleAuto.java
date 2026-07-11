@@ -12,7 +12,7 @@ import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.TankDrive;
+import org.firstinspires.ftc.teamcode.MechanumDriveSWClass;
 
 import org.firstinspires.ftc.teamcode.mechCode.IntakeRoadRunner;
 import org.firstinspires.ftc.teamcode.mechCode.ShooterRoadRunner;
@@ -29,7 +29,7 @@ public class SampleAuto extends LinearOpMode {
         // liftTimer.reset();
         // instantiating the robot at a specific pose
         Pose2d initialPose = new Pose2d(-52, 46, Math.toRadians(130));
-        TankDrive drive = new TankDrive(hardwareMap, initialPose);
+        MechanumDriveSWClass drive = new MechanumDriveSWClass(hardwareMap, initialPose);
         IntakeRoadRunner intake= new IntakeRoadRunner(hardwareMap,telemetry);
         ShooterRoadRunner shooter = new ShooterRoadRunner(hardwareMap, telemetry);
         TransferRoadRunner transfer = new TransferRoadRunner(hardwareMap,telemetry);
