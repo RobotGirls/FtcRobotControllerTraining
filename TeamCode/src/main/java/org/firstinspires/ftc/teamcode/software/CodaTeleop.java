@@ -96,6 +96,16 @@ public class CodaTeleop extends LinearOpMode {
         double frontRightPower = (y - x - rx) / denominator;
         double backRightPower  = (y + x - rx) / denominator;
 
+        // Telemetry for debugging drive controls
+        telemetry.addData("Drive Y", "%.2f", y);
+        telemetry.addData("Drive X", "%.2f", x);
+        telemetry.addData("Turn", "%.2f", rx);
+
+        telemetry.addData("Front Left Power", "%.2f", frontLeftPower);
+        telemetry.addData("Front Right Power", "%.2f", frontRightPower);
+        telemetry.addData("Back Left Power", "%.2f", backLeftPower);
+        telemetry.addData("Back Right Power", "%.2f", backRightPower);
+
         robot.setDrivePower(frontLeftPower, frontRightPower, backLeftPower, backRightPower);
     } // end handleMecanumDrive
 
