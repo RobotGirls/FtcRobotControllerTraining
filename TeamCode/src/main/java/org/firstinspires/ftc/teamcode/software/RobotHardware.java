@@ -67,6 +67,8 @@ public class RobotHardware {
         backLeft.setPower(bl);
         backRight.setPower(br);
     }
-
-
+    public double getFrontLeftPower()  { return frontLeft.getPower(); }
+    public double getFrontRightPower() { return frontRight.getPower(); }
+    public double getBackLeftPower()   { return backLeft.getPower(); }
+    public double getBackRightPower()  { return backRight.getPower(); }
 }

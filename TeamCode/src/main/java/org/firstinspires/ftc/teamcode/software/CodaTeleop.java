@@ -77,6 +77,11 @@ public class CodaTeleop extends LinearOpMode {
             telemetry.addData("Status", "Running");
             telemetry.addData("Selected Alliance", isRedAlliance ? "RED" : "BLUE");
             telemetry.addData("Selected Side", isCloseSide ? "CLOSE" : "FAR");
+
+            telemetry.addData("Front Left",  robot.getFrontLeftPower());
+            telemetry.addData("Front Right", robot.getFrontRightPower());
+            telemetry.addData("Back Left",   robot.getBackLeftPower());
+            telemetry.addData("Back Right",  robot.getBackRightPower());
             telemetry.update();
         }  // end while
     } // end runOpMode
