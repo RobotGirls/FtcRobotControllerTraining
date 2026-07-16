@@ -1,0 +1,85 @@
+package org.firstinspires.ftc.teamcode.autoCode;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import androidx.annotation.NonNull;
+
+import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
+import com.acmerobotics.roadrunner.Action;
+import com.acmerobotics.roadrunner.Pose2d;
+import com.acmerobotics.roadrunner.SequentialAction;
+import com.acmerobotics.roadrunner.TrajectoryActionBuilder;
+import com.acmerobotics.roadrunner.Vector2d;
+import com.acmerobotics.roadrunner.ftc.Actions;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import org.firstinspires.ftc.teamcode.opmodes.RedLeftPark;
+
+
+import org.firstinspires.ftc.teamcode.MecanumDriveSWClass;
+
+import org.firstinspires.ftc.teamcode.mechCode.IntakeRoadRunner;
+
+@Autonomous(name = "Samies Amazing Auto")
+public class AutoSWSamie extends LinearOpMode {
+
+// RR-specific imports
+
+
+    private boolean first = true;
+        private static final double FIRST_LIFT_DOWN_POS = 50.0;
+        private static final double LAST_LIFT_DOWN_POS = 100.0;
+        private double currLiftPos = 0.0;
+
+        @Override
+        public void runOpMode() throws InterruptedException {
+            // instantiating the robot at a specific pose
+            Pose2d initialPose = new Pose2d(-38, -62, Math.toRadians(89));
+            MecanumDriveSWClass drive = new MecanumDriveSWClass(hardwareMap, initialPose);
+
+            IntakeRoadRunner lift = new IntakeRoadRunner(hardwareMap, telemetry);
+
+
+            // actionBuilder builds from the drive steps passed to it
+            TrajectoryActionBuilder toSub = drive.actionBuilder(initialPose)
+                    // red left park
+                    .lineToY(-10)
+                    .turn(Math.toRadians(-90))
+                    .lineToX(-26);
+
+
+
+            // ON INIT:
+            //      Actions.runBlocking(claw.closeClaw());
+
+            Action firstTraj = toSub.build();
+
+            while (!isStopRequested() && !opModeIsActive()) {
+                telemetry.addData("Robot position: ", drive.updatePoseEstimate());
+                telemetry.update();
+            }
+            waitForStart();
+            if (isStopRequested()) return;
+
+            // IN RUNTIME
+            // running the action sequence!
+            Actions.runBlocking(
+                    new SequentialAction(
+//                        liftPivot.liftPivotDown(),
+                            firstTraj
+                            // go to the basket, push samples, and then submersible
+                            //lift.liftUp() // to lvl1 ascent
+                            //  claw.openClaw(), // drop the sample
+                            //  lift.liftDown()
+                    )
+            );
+        }
+        }
+            //
+

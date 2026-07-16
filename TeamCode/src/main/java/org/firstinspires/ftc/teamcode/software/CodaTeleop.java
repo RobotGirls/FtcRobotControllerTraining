@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.software;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="Basic Mecanum TeleOp coda", group="software class")
+@TeleOp(name="Basic Mecanum TeleOp Samie", group="software class")
 public class CodaTeleop extends LinearOpMode {
 
     // Instantiate the hardware class
