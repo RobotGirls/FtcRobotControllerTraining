@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.software;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class RobotHardware {
     // Declare drive motors
@@ -13,13 +14,17 @@ public class RobotHardware {
     // Local copy of hardware map
     private HardwareMap hwMap = null;
 
+    Servo testServo = null;
+
 
     /*--------------------------------------------------------------
      * Initialize standard hardware interfaces
      * @param ahwMap The Robot's Hardware Map
      */
     public void init(HardwareMap ahwMap) {
+
         hwMap = ahwMap;
+
 
         // Define and Initialize Motors using the exact names from the
         // Driver Station config
@@ -27,6 +32,8 @@ public class RobotHardware {
         frontRight = hwMap.get(DcMotor.class, "frontRight");
         backLeft = hwMap.get(DcMotor.class, "backLeft");
         backRight = hwMap.get(DcMotor.class, "backRight");
+
+        testServo = hwMap.get(Servo.class, "servo");
 
         // Set motor directions (Adjust based on your physical robot's gearing)
         frontLeft.setDirection(DcMotor.Direction.FORWARD);
