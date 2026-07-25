@@ -2,13 +2,15 @@ package org.firstinspires.ftc.teamcode.software;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
+import com.qualcomm.robotcore.hardware.Servo;
 public class RobotHardware {
     // Declare drive motors
     public DcMotor frontLeft = null;
     public DcMotor frontRight = null;
     public DcMotor backLeft = null;
     public DcMotor backRight = null;
+
+    Servo testServo;
 
     // Local copy of hardware map
     private HardwareMap hwMap = null;
@@ -28,11 +30,14 @@ public class RobotHardware {
         backLeft = hwMap.get(DcMotor.class, "backLeft");
         backRight = hwMap.get(DcMotor.class, "backRight");
 
+        testServo = hwMap.get(Servo.class,"Servo");
+
         // Set motor directions (Adjust based on your physical robot's gearing)
         frontLeft.setDirection(DcMotor.Direction.FORWARD);
         backLeft.setDirection(DcMotor.Direction.FORWARD);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         backRight.setDirection(DcMotor.Direction.REVERSE);
+
 
         // Setting all motors to zero power during initialization is a safety
         // standard in robotics. When you initialize an OpMode in FTC, the robot
@@ -67,6 +72,7 @@ public class RobotHardware {
         backLeft.setPower(bl);
         backRight.setPower(br);
     }
+
 
 
 }

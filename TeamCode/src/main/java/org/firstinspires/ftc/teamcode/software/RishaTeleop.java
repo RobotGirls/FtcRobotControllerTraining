@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.software;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name="Basic Mecanum TeleOp risha", group="software class")
 public class RishaTeleop extends LinearOpMode {
@@ -78,6 +79,10 @@ public class RishaTeleop extends LinearOpMode {
             telemetry.addData("Selected Alliance", isRedAlliance ? "RED" : "BLUE");
             telemetry.addData("Selected Side", isCloseSide ? "CLOSE" : "FAR");
             telemetry.update();
+
+            if (gamepad1.a) {
+                robot.testServo.setPosition(0.5);
+            }
         }  // end while
     } // end runOpMode
 
