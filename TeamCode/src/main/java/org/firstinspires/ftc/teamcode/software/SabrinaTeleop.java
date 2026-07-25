@@ -2,9 +2,11 @@ package org.firstinspires.ftc.teamcode.software;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Servo;
+
 
 @TeleOp(name="Basic Mecanum TeleOp coda", group="software class")
-public class CodaTeleop extends LinearOpMode {
+public class SabrinaTeleop extends LinearOpMode {
 
     // Instantiate the hardware class
     RobotHardware robot = new RobotHardware();
@@ -17,6 +19,7 @@ public class CodaTeleop extends LinearOpMode {
     public void runOpMode() {
         // Initialize the hardware using the robot's hardwareMap built into the OpMode
         robot.init(hardwareMap);
+
 
         // Initialize our custom gamepad handler wrapper
         gamepadWrapper = new GamepadHandler(gamepad1);
@@ -78,8 +81,14 @@ public class CodaTeleop extends LinearOpMode {
             telemetry.addData("Selected Alliance", isRedAlliance ? "RED" : "BLUE");
             telemetry.addData("Selected Side", isCloseSide ? "CLOSE" : "FAR");
             telemetry.update();
-        }  // end while
-    } // end runOpMode
+        }
+        if (gamepad2.a){
+           robot.claw.setPosition(0.5);
+        }
+        else if(gamepad2.b){
+            robot.claw.setPosition(0);
+        }
+        }
 
     /**
      * Isolated method specifically for drive commands
@@ -95,6 +104,8 @@ public class CodaTeleop extends LinearOpMode {
         double backLeftPower   = (y - x + rx) / denominator;
         double frontRightPower = (y - x - rx) / denominator;
         double backRightPower  = (y + x - rx) / denominator;
+
+        telemetry.addData("Y Position", y);
 
         robot.setDrivePower(frontLeftPower, frontRightPower, backLeftPower, backRightPower);
     } // end handleMecanumDrive

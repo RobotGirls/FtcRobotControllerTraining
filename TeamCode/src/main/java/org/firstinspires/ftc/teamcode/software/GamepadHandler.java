@@ -48,6 +48,7 @@ public class GamepadHandler {
         telemetry.addData("Alliance", isRedAlliance ? "RED (Press B)" : "BLUE (Press X)");
         telemetry.addData("Starting Side", isCloseSide ? "CLOSE (Press A)" : "FAR (Press Y)");
         telemetry.addLine("--------------------------------");
+        telemetry.addLine();
     }
 
     // --- GETTERS FOR THE SELECTIONS ---
