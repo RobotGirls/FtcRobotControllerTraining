@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.softwareTeleopCode;
+package org.firstinspires.ftc.teamcode.software;
 
 import com.qualcomm.robotcore.hardware.Gamepad;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
