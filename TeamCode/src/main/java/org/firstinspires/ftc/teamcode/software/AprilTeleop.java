@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.sun.tools.javac.util.StringUtils;
 
 import java.util.Random;
-
-@TeleOp(name="Basic Mecanum TeleOp coda", group="software class")
+// @Teleop is an annotation
+@TeleOp(name="Basic Mecanum TeleOp April", group="software class")
 public class AprilTeleop extends LinearOpMode {
 
     // Instantiate the hardware class
