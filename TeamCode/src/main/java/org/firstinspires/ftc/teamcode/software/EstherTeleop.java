@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.software;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name="Basic Mecanum TeleOp coda", group="software class")
 public class EstherTeleop extends LinearOpMode {
@@ -78,21 +77,8 @@ public class EstherTeleop extends LinearOpMode {
             telemetry.addData("Status", "Running");
             telemetry.addData("Selected Alliance", isRedAlliance ? "RED" : "BLUE");
             telemetry.addData("Selected Side", isCloseSide ? "CLOSE" : "FAR");
-
-            telemetry.addData("Front Left",  robot.getFrontLeftPower());
-            telemetry.addData("Front Right", robot.getFrontRightPower());
-            telemetry.addData("Back Left",   robot.getBackLeftPower());
-            telemetry.addData("Back Right",  robot.getBackRightPower());
             telemetry.update();
-
-            if (gamepad1.a) {
-                robot.testServo.setPosition(0.5);
-            } else {
-                robot.testServo.setPosition(0);  
-            }
-
         }  // end while
-
     } // end runOpMode
 
     /**
