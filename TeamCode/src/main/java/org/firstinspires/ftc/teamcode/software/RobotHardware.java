@@ -55,7 +55,9 @@ public class RobotHardware {
 
         // Set all motors to run without encoders for TeleOp
         //setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
+        // Reset and establish explicit run mode for predictable movements
+        setDriveMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        setDriveMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /**
@@ -66,6 +68,35 @@ public class RobotHardware {
         frontRight.setPower(fr);
         backLeft.setPower(bl);
         backRight.setPower(br);
+    }
+    /**
+     * Convenience method to change all drive motor modes simultaneously
+     * @param mode Target DcMotor RunMode (e.g., RUN_USING_ENCODER, RUN_TO_POSITION)
+     */
+    public void setDriveMode(DcMotor.RunMode mode) {
+        frontLeft.setMode(mode);
+        frontRight.setMode(mode);
+        backLeft.setMode(mode);
+        backRight.setMode(mode);
+    }
+    /**
+     * Controls all drive motors for a set amount of time.
+     * @param fl Front Left power (-1.0 to 1.0)
+     * @param fr Front Right power (-1.0 to 1.0)
+     * @param bl Back Left power (-1.0 to 1.0)
+     * @param br Back Right power (-1.0 to 1.0)
+     * @param durationMs Time in milliseconds to run the motors
+     * @param opMode Pass 'this' from your autonomous file to keep it safe
+     */
+    public void driveTime(double fl, double fr, double bl, double br, long durationMs, com.qualcomm.robotcore.eventloop.opmode.LinearOpMode opMode) {
+        setDrivePower(fl, fr, bl, br);
+
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < durationMs && !opMode.isStopRequested()) {
+            opMode.idle();
+        }
+
+        setDrivePower(0, 0, 0, 0); // Always stop at the end
     }
 
 
