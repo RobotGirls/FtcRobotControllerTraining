@@ -1,8 +1,7 @@
-package org.firstinspires.ftc.teamcode.software;
+package org.firstinspires.ftc.teamcode.software.mechanisms;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import org.firstinspires.ftc.teamcode.software.ClawServo;
 
 public class RobotHardware {
     // Declare drive motors

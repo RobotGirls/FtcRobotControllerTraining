@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.software;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.software.mechanisms.RobotHardware;
+
 @TeleOp(name="Basic Mecanum TeleOp coda", group="software class")
 public class EstherTeleop extends LinearOpMode {
 

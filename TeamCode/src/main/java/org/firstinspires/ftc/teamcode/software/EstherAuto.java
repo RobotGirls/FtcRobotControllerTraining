@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.software;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.teamcode.software.mechanisms.RobotHardware;
+
 @Autonomous(name="CodaAuto", group="Autonomous")
 public class EstherAuto extends LinearOpMode {
 
