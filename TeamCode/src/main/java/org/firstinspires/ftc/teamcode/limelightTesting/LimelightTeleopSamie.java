@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 @Disabled
-@TeleOp(name = "Limelight Teleop AW")
+@TeleOp(name = "Limelight Teleop SS")
 public class LimelightTeleopSamie extends LinearOpMode {
 
     /* Declare OpMode members. */
