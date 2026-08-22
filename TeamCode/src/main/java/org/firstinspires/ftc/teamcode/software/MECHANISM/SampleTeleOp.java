@@ -3,6 +3,9 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.software.MECHANISM.ClawServo;
+import org.firstinspires.ftc.teamcode.software.MECHANISM.RobotHardware;
+
 @TeleOp(name = "Sample TeleOp", group = "Linear OpMode")
 public class SampleTeleOp extends LinearOpMode {
     RobotHardware robot = new RobotHardware();
