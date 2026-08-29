@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.limelightTesting;
 
 
 
+import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -9,10 +10,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
-@Disabled
+// @Disabled
 @TeleOp(name = "Limelight Teleop AW")
 public class LimelightTeleopAnneke extends LinearOpMode {
 
@@ -28,7 +31,7 @@ public class LimelightTeleopAnneke extends LinearOpMode {
 
     private Limelight3A limelight;
     private DcMotor turret;
-    private final int ALIGN_THRESHOLD = 3;
+    private final int ALIGN_THRESHOLD = 10;
     private double lastError = 0;
     private double derivative;
     private double integralSum = 0;
@@ -59,17 +62,17 @@ public class LimelightTeleopAnneke extends LinearOpMode {
 
 
         //turret = hardwareMap.get(DcMotor.class, "turret");
-        //limelight = hardwareMap.get(Limelight3A.class, "limelight");
+
+        limelight = hardwareMap.get(Limelight3A.class, "limelight");
 
         //telemetry.setMsTransmissionInterval(11);
 
-        // limelight.pipelineSwitch(0);
+        limelight.pipelineSwitch(0);
 
-        //  limelight.start();
+        limelight.start();
 
         //telemetry.addData(">", "Robot Ready.  Press Play.");
         //telemetry.update();
-        //waitForStart();
 
 
         //RNRRMecanumDrive drive = new RNRRMecanumDrive(hardwareMap, new Pose2d(0, 0, 0));
@@ -98,15 +101,16 @@ public class LimelightTeleopAnneke extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            leftFront.setPower(gamepad1.left_stick_y);
+           /* leftFront.setPower(gamepad1.left_stick_y);
             leftBack.setPower(gamepad1.left_stick_y);
             rightFront.setPower(gamepad1.right_stick_y);
             rightBack.setPower(gamepad1.right_stick_y);
+            */
 
 
 
-            //LLResult result = limelight.getLatestResult();
-/*
+            LLResult result = limelight.getLatestResult();
+
             if (result.isValid()) {
 
                 // Access general information
@@ -146,9 +150,7 @@ public class LimelightTeleopAnneke extends LinearOpMode {
         }
         limelight.stop();
 
- */
             // Pace this loop so jaw action is reasonable speed.
             sleep(50);
         }
     }
-}
