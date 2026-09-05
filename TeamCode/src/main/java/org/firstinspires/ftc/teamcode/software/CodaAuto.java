@@ -3,8 +3,6 @@ package org.firstinspires.ftc.teamcode.software;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.software.GamepadHandler;
-
 @Autonomous(name="CodaAuto", group="Autonomous")
 public class CodaAuto extends LinearOpMode {
 
